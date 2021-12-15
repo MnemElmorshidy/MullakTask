@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ملاك</string>
+    <string name="call"> اتصل بمنجز </string>
+     <string name="download">تحميل ملف pdf</string>
+    <string name="share">مشاركه</string>
+    <string name="add">اضافه مجمع سكني</string>
+    <string name="building">شقق</string>
+    <string name="compound">دوبلكسات</string>
+    <string name="type">نوع الوحدات</string>
+    <string name="units_number">عدد الوحدات</string>
+    <string name="unit_name">اسم الوحده</string>
+    <string name="next">التالي</string>
+    <string name="number">عدد الزيارات</string>
+    <string name="preventive_maintenance">صيانات وقائية</string>
+    <string name="decrement">-</string>
+    <string name="increment">+</string>
+    <string name="num_one">1</string>
+    <string name="units">وحدات</string>
+</resources>

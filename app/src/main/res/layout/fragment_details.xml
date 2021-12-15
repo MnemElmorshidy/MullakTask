@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.details.DetailsFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8sdp">
+
+        <fragment
+            android:id="@+id/map_fragment"
+            android:name="com.example.mullak.ui.map.MapsFragment"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_100sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/white"
+            android:text="@string/next"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/maintenance_rv" />
+
+        <TextView
+            android:id="@+id/unit_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/unit_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/map_fragment" />
+
+        <TextView
+            android:id="@+id/units_number_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/units_number"
+            app:layout_constraintStart_toStartOf="@+id/unit_name_tv"
+            app:layout_constraintTop_toBottomOf="@+id/unit_name_tv" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/preventive_maintenance"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/units_number_tv"
+            app:layout_constraintTop_toBottomOf="@+id/units_number_tv" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/maintenance_rv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/units"
+            app:layout_constraintStart_toEndOf="@+id/units_number_tv"
+            app:layout_constraintTop_toTopOf="@+id/units_number_tv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

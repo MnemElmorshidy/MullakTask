@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Mullak</string>
+    <string name="call">call munjiz</string>
+     <string name="download">download PDF</string>
+    <string name="share">share</string>
+    <string name="add">add</string>
+    <string name="building">Building</string>
+    <string name="compound">Compound</string>
+    <string name="type">Building Type</string>
+    <string name="units_number">Units Number</string>
+    <string name="unit_name">Unit Name</string>
+    <string name="next">next</string>
+    <string name="number">Number Of Visits</string>
+    <string name="preventive_maintenance">Preventive Maintenance</string>
+    <string name="decrement">-</string>
+    <string name="increment">+</string>
+    <string name="num_one">1</string>
+    <string name="units">Units</string>
+</resources>
