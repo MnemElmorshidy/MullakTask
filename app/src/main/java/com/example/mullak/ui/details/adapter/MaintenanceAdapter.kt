@@ -1,7 +1,6 @@
 package com.example.mullak.ui.details.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,7 +40,7 @@ class MaintenanceAdapter(
             else
                 binding.etAdditionalInput.visibility = View.VISIBLE
 
-            if (itemClickListener != null) {
+
                 binding.maintenanceNameCheckBox.setOnCheckedChangeListener { compoundButton, b ->
                     var additionalInfo =
                         if (item.pivot.additional_input == 0)
@@ -52,16 +51,18 @@ class MaintenanceAdapter(
                     var visitsNum = binding.visitsNumTv.text.toString().toInt()
                     binding.btnInc.setOnClickListener {
                         visitsNum++
+                        binding.visitsNumTv.text = visitsNum.toString()
                     }
                     binding.btnDec.setOnClickListener {
                         if (visitsNum > 1)
                             visitsNum--
+                        binding.visitsNumTv.text = visitsNum.toString()
                     }
 
 
                     services[position] = Service(
                         item.pivot.additional_input,
-                        additionalInfo.toInt(),
+                        additionalInfo,
                         item.id,
                         visitsNum,
                         item.pivot.maintenance_type_id
@@ -69,7 +70,7 @@ class MaintenanceAdapter(
                     itemClickListener!!.onClick(services)
                 }
 
-            }
+
 
         }
     }

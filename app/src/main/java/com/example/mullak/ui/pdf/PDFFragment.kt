@@ -1,6 +1,5 @@
 package com.example.mullak.ui.pdf
 
-import android.R
 import android.app.DownloadManager
 import android.content.Context.DOWNLOAD_SERVICE
 import android.content.Intent
@@ -10,9 +9,12 @@ import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.mullak.databinding.FragmentPDFBinding
+import java.net.URLEncoder
 
 
 class PDFFragment : Fragment() {
@@ -32,11 +34,19 @@ class PDFFragment : Fragment() {
         binding = FragmentPDFBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        var pdfPath = args.result.quotation
 
         binding.webView.settings.loadWithOverviewMode = true
         binding.webView.settings.javaScriptEnabled = true
-        val url = "https://docs.google.com/gview?embedded=true&url=${args.result.quotation}"
+
+        binding.webView.setWebViewClient(object : WebViewClient() {
+            override fun onPageFinished(view: WebView, url: String) {
+                binding.progressBar.visibility = View.GONE
+            }
+        })
+        val url = "https://docs.google.com/gview?embedded=true&url=$pdfPath"
         binding.webView.loadUrl(url)
+
 
         binding.btnDownload.setOnClickListener {
             val request =
@@ -48,7 +58,8 @@ class PDFFragment : Fragment() {
                 .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "munjiz pdf")
                 .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
 
-            val dm : DownloadManager = requireContext().getSystemService(DOWNLOAD_SERVICE)  as DownloadManager
+            val dm: DownloadManager =
+                requireContext().getSystemService(DOWNLOAD_SERVICE) as DownloadManager
             dm.enqueue(request)
         }
 
